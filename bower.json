@@ -1,0 +1,11 @@
+{
+  "name": "angular-ie7",
+  "dependencies": {
+    "angular": "~1.0.8"
+  },
+  "devDependencies": {
+  },
+  "resolutions": {
+    "angular": "~1.0.8"
+  }
+}
