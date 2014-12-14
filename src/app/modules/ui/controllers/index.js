@@ -3,8 +3,7 @@
 /**
  * @ngInject
  */
-function Index($scope, Logger) {
-  Logger.debug('Index');
+function Index($scope) {
   // ViewModel
   var vm = $scope.vm = this;
 

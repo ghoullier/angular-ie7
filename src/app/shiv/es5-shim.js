@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 /*!
 * https://github.com/es-shims/es5-shim
 * @license es5-shim Copyright 2009-2014 by contributors, MIT License
@@ -12,7 +13,6 @@
 // Add semicolon to prevent IIFE from being passed as argument to concatenated code.
 ;(function (root, factory) {
   'use strict';
-  /*global define, exports, module */
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(factory);
@@ -82,7 +82,7 @@
     try {
       Object.defineProperty({}, 'x', {});
       return true;
-    } catch (e) { /* this is ES3 */
+    } catch (e) {
       return false;
     }
   }());
@@ -168,7 +168,6 @@
         // ES5 9.9
         // http://es5.github.com/#x9.9
         ToObject: function (o) {
-          /*jshint eqnull: true */
           if (o == null) { // this matches both null and undefined
             throw new TypeError("can't convert " + o + ' to object');
           }
@@ -429,7 +428,7 @@
           };
 
           defineProperties(ArrayPrototype, {
-            forEach: function forEach(fun /*, thisp*/) {
+            forEach: function forEach(fun) {
               var object = ES.ToObject(this),
               self = splitString && isString(this) ? this.split('') : object,
               thisp = arguments[1],
@@ -456,7 +455,7 @@
           // http://es5.github.com/#x15.4.4.19
           // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map
           defineProperties(ArrayPrototype, {
-            map: function map(fun /*, thisp*/) {
+            map: function map(fun) {
               var object = ES.ToObject(this),
               self = splitString && isString(this) ? this.split('') : object,
               length = self.length >>> 0,
@@ -481,7 +480,7 @@
           // http://es5.github.com/#x15.4.4.20
           // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/filter
           defineProperties(ArrayPrototype, {
-            filter: function filter(fun /*, thisp */) {
+            filter: function filter(fun) {
               var object = ES.ToObject(this),
               self = splitString && isString(this) ? this.split('') : object,
               length = self.length >>> 0,
@@ -510,7 +509,7 @@
           // http://es5.github.com/#x15.4.4.16
           // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/every
           defineProperties(ArrayPrototype, {
-            every: function every(fun /*, thisp */) {
+            every: function every(fun) {
               var object = ES.ToObject(this),
               self = splitString && isString(this) ? this.split('') : object,
               length = self.length >>> 0,
@@ -534,7 +533,7 @@
           // http://es5.github.com/#x15.4.4.17
           // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/some
           defineProperties(ArrayPrototype, {
-            some: function some(fun /*, thisp */) {
+            some: function some(fun) {
               var object = ES.ToObject(this),
               self = splitString && isString(this) ? this.split('') : object,
               length = self.length >>> 0,
@@ -562,7 +561,7 @@
             reduceCoercesToObject = typeof ArrayPrototype.reduce.call('es5', function (_, __, ___, list) { return list; }) === 'object';
           }
           defineProperties(ArrayPrototype, {
-            reduce: function reduce(fun /*, initial*/) {
+            reduce: function reduce(fun) {
               var object = ES.ToObject(this),
               self = splitString && isString(this) ? this.split('') : object,
               length = self.length >>> 0;
@@ -613,7 +612,7 @@
             reduceRightCoercesToObject = typeof ArrayPrototype.reduceRight.call('es5', function (_, __, ___, list) { return list; }) === 'object';
           }
           defineProperties(ArrayPrototype, {
-            reduceRight: function reduceRight(fun /*, initial*/) {
+            reduceRight: function reduceRight(fun) {
               var object = ES.ToObject(this),
               self = splitString && isString(this) ? this.split('') : object,
               length = self.length >>> 0;
@@ -664,7 +663,7 @@
           // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
           var hasFirefox2IndexOfBug = Array.prototype.indexOf && [0, 1].indexOf(1, 2) !== -1;
           defineProperties(ArrayPrototype, {
-            indexOf: function indexOf(sought /*, fromIndex */) {
+            indexOf: function indexOf(sought) {
               var self = splitString && isString(this) ? this.split('') : ES.ToObject(this),
               length = self.length >>> 0;
 
@@ -693,7 +692,7 @@
           // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/lastIndexOf
           var hasFirefox2LastIndexOfBug = Array.prototype.lastIndexOf && [0, 1].lastIndexOf(0, -3) !== -1;
           defineProperties(ArrayPrototype, {
-            lastIndexOf: function lastIndexOf(sought /*, fromIndex */) {
+            lastIndexOf: function lastIndexOf(sought) {
               var self = splitString && isString(this) ? this.split('') : ES.ToObject(this),
               length = self.length >>> 0;
 
@@ -912,7 +911,6 @@
           if (!Date.parse || doesNotParseY2KNewYear || acceptsInvalidDates || !supportsExtendedYears) {
             // XXX global assignment won't work in embeddings that use
             // an alternate object for the context.
-            /*global Date: true */
             Date = (function (NativeDate) {
 
               // Date.length === 7
@@ -1051,7 +1049,6 @@
 
               return Date;
             }(Date));
-            /*global Date: false */
           }
 
           // ES5 15.9.4.4
@@ -1274,13 +1271,7 @@
                   // Doesn't need flags gy, but they don't hurt
                   separator2 = new RegExp('^' + separator.source + '$(?!\\s)', flags);
                 }
-                /* Values for `limit`, per the spec:
-                * If undefined: 4294967295 // Math.pow(2, 32) - 1
-                * If 0, Infinity, or NaN: 0
-                * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
-                * If negative number: 4294967296 - Math.floor(Math.abs(limit))
-                * If other: Type-convert, then use the above rules
-                */
+
                 limit = typeof limit === 'undefined' ?
                 -1 >>> 0 : // Math.pow(2, 32) - 1
                 ES.ToUint32(limit);
@@ -1407,7 +1398,6 @@
 
             // ES-5 15.1.2.2
             if (parseInt(ws + '08') !== 8 || parseInt(ws + '0x16') !== 22) {
-              /*global parseInt: true */
               parseInt = (function (origParseInt) {
                 var hexRegex = /^0[xX]/;
                 return function parseIntES5(str, radix) {
@@ -1421,3 +1411,4 @@
             }
 
           }));
+/* jshint ignore:end */

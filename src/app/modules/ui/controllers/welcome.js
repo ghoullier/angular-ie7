@@ -3,11 +3,11 @@
 /**
  * @ngInject
  */
-function List($scope) {
+function Welcome($scope) {
   // ViewModel
   var vm = $scope.vm = this;
 
-  vm.items = [];
+  vm.appVersion = '1.0.0@ie7';
 }
 
-module.exports = List;
+module.exports = Welcome;
