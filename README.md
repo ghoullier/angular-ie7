@@ -1,4 +1,7 @@
-angular-ie7
-===========
+# angular-ie7 v0.0.0
 
-POC Angular with IE7
+## Documentation
+
+- [GETTING-STARTED](./GETTING-STARTED.md)
+
+> TODO: Documentation
