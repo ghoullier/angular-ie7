@@ -3,11 +3,11 @@
 /**
  * @ngInject
  */
-function List($scope) {
+function List($scope, Faker) {
   // ViewModel
   var vm = $scope.vm = this;
 
-  vm.items = [];
+  vm.items = Faker.getItems();
 }
 
 module.exports = List;
