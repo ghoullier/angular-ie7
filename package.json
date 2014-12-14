@@ -1,7 +1,7 @@
 {
   "name": "angular-ie7",
   "description": "angular-ie7 generated with yeoman-angular-devstack",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/ghoullier/angular-ie7.git"
