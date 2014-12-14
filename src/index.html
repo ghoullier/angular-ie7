@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Velocity</title>
+  <title>AngularJS IE7</title>
   <link rel="stylesheet" href="./css/main.css" />
 </head>
 <body>
   <div class="App" data-ng-cloak>
     <header>
-      <h1>AngularJS for IE7 - POC <span data-ng-bind="1 + 1"></span></h1>
       <nav class="Nav">
-        <a data-ng-href="#/welcome" class="Nav__Link">Index</a>
+        <a data-ng-href="#/index" class="Nav__Link">Index</a>
         <a data-ng-href="#/list" class="Nav__Link">List</a>
+        <a data-ng-href="#/welcome" class="Nav__Link">Welcome</a>
       </nav>
     </header>
-    <main class="App__View" data-ng-view></main>
+    <main class="App__View">
+      <h1>AngularJS for IE7 - POC <span data-ng-bind="1 + 1"></span></h1>
+      <div data-ng-view></div>
+    </main>
     <footer class="App__Footer">
       <p>Crafted by <a href="//twitter.com/ghoullier" title="Twitter Account">@ghoullier</a></p>
     </footer>

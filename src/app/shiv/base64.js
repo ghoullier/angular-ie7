@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 /*
 * Copyright (c) 2010 Nick Galbreath
 * http://code.google.com/p/stringencoders/source/browse/#svn/trunk/javascript
@@ -174,3 +175,4 @@ base64.decode = function(s) {
           }
           return x.join('');
         }
+/* jshint ignore:end */

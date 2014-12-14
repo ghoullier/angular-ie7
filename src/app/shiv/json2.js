@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 /*
 json2.js
 2014-02-04
@@ -487,3 +488,4 @@ if (typeof JSON !== 'object') {
                     };
                   }
                 }());
+/* jshint ignore:end */

@@ -4,6 +4,7 @@
  * @ngInject
  */
 function RoutingConfig($routeProvider, $locationProvider) {
+
   $routeProvider.when('/index', {
     templateUrl: 'partials/views/index.html',
     controller: 'Index'
@@ -12,6 +13,11 @@ function RoutingConfig($routeProvider, $locationProvider) {
   $routeProvider.when('/list', {
     templateUrl: 'partials/views/list.html',
     controller: 'List'
+  });
+
+  $routeProvider.when('/welcome', {
+    templateUrl: 'partials/views/welcome.html',
+    controller: 'Welcome'
   });
 
   $routeProvider.otherwise({
