@@ -13,7 +13,7 @@ function Logger($log) {
   var service = {};
   // Enable correct log level
   levels.forEach(function onEachLogLevel(level) {
-    service[level] = (levels.indexOf(level) >= logLevel) ? $log[level] : angular.noop;
+    service[level] = (levels.indexOf(level) >= logLevel) ? $log[level] || $log.log : angular.noop;
   });
   return service;
 }

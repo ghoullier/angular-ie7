@@ -3,10 +3,10 @@
 /**
  * @ngInject
  */
-function List(Logger, Faker) {
+function List($scope, Logger, Faker) {
   Logger.debug('List');
   // ViewModel
-  var vm = this;
+  var vm = $scope.vm = this;
 
   vm.items = Faker.getItems();
 }

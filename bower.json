@@ -1,12 +1,11 @@
 {
   "name": "angular-ie7",
   "dependencies": {
-    "angular": "~1.3.6",
-    "angular-ui-router": "~0.2.11"
+    "angular": "~1.0.8"
   },
   "devDependencies": {
   },
   "resolutions": {
-    "angular": "~1.3.6"
+    "angular": "~1.0.8"
   }
 }

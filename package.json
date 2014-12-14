@@ -2,6 +2,10 @@
   "name": "angular-ie7",
   "description": "angular-ie7 generated with yeoman-angular-devstack",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghoullier/angular-ie7.git"
+  },
   "scripts": {
     "postinstall": "node ./node_modules/bower/bin/bower install",
     "postupdate": "node ./node_modules/bower/bin/bower update",
