@@ -1,4 +1,4 @@
-# angular-ie7 v0.0.0
+# angular-ie7 v0.1.0
 
 ## Documentation
 
